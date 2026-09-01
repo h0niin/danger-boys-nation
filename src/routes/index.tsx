@@ -46,7 +46,7 @@ const founders = [
   { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]" },
   { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]" },
   { number: "10", name: "SRV", image: srv.url, position: "object-[50%_32%]" },
-  { number: "11", name: "YADHU", image: yadhu.url, position: "object-[50%_18%]" },
+  { number: "11", name: "YADHU", image: yadhu.url, position: "object-[50%_12%]", zoom: "scale-[1.7] group-hover:scale-[1.8]" },
 ];
 
 function DangerBoys() {
