@@ -34,15 +34,15 @@ const stages = [
 ];
 
 const founders = [
-  { number: "01", name: "ABDLLA", image: abdlla.url, position: "50% 28%" },
-  { number: "02", name: "ADHITH", image: adhith.url, position: "50% 36%" },
-  { number: "03", name: "ASH", image: ash.url, position: "50% 38%" },
-  { number: "04", name: "JOEL", image: joel.url, position: "50% 38%" },
-  { number: "05", name: "NAJA", image: naja.url, position: "50% 30%" },
-  { number: "06", name: "NASEEF", image: naseef.url, position: "50% 36%" },
-  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "50% 38%" },
-  { number: "08", name: "SANAD", image: sanad.url, position: "50% 42%" },
-  { number: "09", name: "SHABAS", image: shabas.url, position: "50% 38%" },
+  { number: "01", name: "ABDLLA", image: abdlla.url, position: "object-[50%_28%]" },
+  { number: "02", name: "ADHITH", image: adhith.url, position: "object-[50%_36%]" },
+  { number: "03", name: "ASH", image: ash.url, position: "object-[50%_38%]" },
+  { number: "04", name: "JOEL", image: joel.url, position: "object-[50%_38%]" },
+  { number: "05", name: "NAJA", image: naja.url, position: "object-[50%_30%]" },
+  { number: "06", name: "NASEEF", image: naseef.url, position: "object-[50%_36%]" },
+  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "object-[50%_38%]" },
+  { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]" },
+  { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]" },
 ];
 
 function DangerBoys() {
@@ -171,7 +171,7 @@ function DangerBoys() {
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
             {founders.map((founder) => (
               <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
-                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} style={{ objectPosition: founder.position }} className="absolute inset-0 size-full scale-[1.28] object-cover grayscale transition duration-500 group-hover:scale-[1.36]" />
+                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} className={`absolute inset-0 size-full scale-[1.28] object-cover grayscale transition duration-500 group-hover:scale-[1.36] ${founder.position}`} />
                  <div className="absolute inset-0 bg-ink/15 transition-colors duration-500 group-hover:bg-transparent" />
                 <span className="absolute left-4 top-4 font-display text-3xl text-danger">{founder.number}</span>
                 <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4">
