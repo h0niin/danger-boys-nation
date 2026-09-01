@@ -38,7 +38,7 @@ function DangerBoys() {
       </header>
 
       <section className="relative" aria-labelledby="danger-title">
-        <div className="relative mx-auto min-h-[calc(100svh-2.75rem)] max-w-[1440px] overflow-hidden px-5 pb-16 pt-14 sm:px-8 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-[1440px] overflow-hidden px-5 pb-16 pt-14 sm:px-8 sm:py-20 lg:py-24">
           <div className="pointer-events-none absolute inset-0 opacity-[0.14]" aria-hidden="true">
             <span className="absolute inset-y-0 left-0 w-px bg-paper" />
             <span className="absolute inset-y-0 right-0 w-px bg-paper" />
