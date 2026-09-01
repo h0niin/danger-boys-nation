@@ -175,7 +175,7 @@ function DangerBoys() {
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
             {founders.map((founder) => (
               <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
-                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} className={`absolute inset-0 size-full scale-[1.28] object-cover grayscale transition duration-500 group-hover:scale-[1.36] ${founder.position}`} />
+                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} className={`absolute inset-0 size-full object-cover grayscale transition duration-500 ${founder.zoom ?? "scale-[1.28] group-hover:scale-[1.36]"} ${founder.position}`} />
                  <div className="absolute inset-0 bg-ink/15 transition-colors duration-500 group-hover:bg-transparent" />
                 <span className="absolute left-4 top-4 font-display text-3xl text-danger">{founder.number}</span>
                 <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4">
