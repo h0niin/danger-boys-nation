@@ -9,6 +9,8 @@ import naseef from "../assets/naseef.asset.json";
 import rabeeath from "../assets/rabeeath.asset.json";
 import sanad from "../assets/sanad.asset.json";
 import shabas from "../assets/shabas.asset.json";
+import srv from "../assets/srv.asset.json";
+import yadhu from "../assets/yadhu.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
