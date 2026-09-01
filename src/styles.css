@@ -172,6 +172,11 @@ html { scroll-behavior: smooth; }
   50% { opacity: .55; box-shadow: 0 0 0 .35rem transparent; }
 }
 
+@keyframes skull-drift {
+  0%, 100% { transform: translateY(-50%) rotate(-2deg); }
+  50% { transform: translateY(-53%) rotate(2deg); }
+}
+
 @utility danger-marquee {
   animation: danger-marquee 22s linear infinite;
 }
@@ -189,12 +194,23 @@ html { scroll-behavior: smooth; }
   animation: signal-pulse 1.8s ease-in-out infinite;
 }
 
+@utility skull-drift {
+  animation: skull-drift 8s ease-in-out infinite;
+}
+
+@utility skull-field {
+  background-image: url("./assets/danger-skull.png");
+  background-size: 150px 150px;
+  background-repeat: repeat;
+  transform: rotate(-8deg) scale(1.15);
+}
+
 @utility clip-stamp {
   clip-path: polygon(0 8%, 100% 0, 94% 100%, 4% 92%);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .danger-marquee, .danger-scan, .signal-pulse { animation: none; }
+  .danger-marquee, .danger-scan, .signal-pulse, .skull-drift { animation: none; }
   .danger-scan { display: none; }
 }

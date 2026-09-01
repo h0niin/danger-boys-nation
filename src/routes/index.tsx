@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import dangerSkull from "../assets/danger-skull.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,12 +24,18 @@ const stages = [
   ["04", "ON AIR", "Make the cut. Enter the frequency."],
 ];
 
+const founders = Array.from({ length: 9 }, (_, index) => ({
+  number: String(index + 1).padStart(2, "0"),
+  label: `FOUNDING MEMBER ${String(index + 1).padStart(2, "0")}`,
+}));
+
 function DangerBoys() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-ink font-body text-paper antialiased selection:bg-danger selection:text-ink">
       <header className="relative z-20 border-b-2 border-danger/70">
         <div className="mx-auto flex h-11 max-w-[1440px] items-center justify-between px-5 text-[10px] sm:px-8 sm:text-xs">
           <div className="flex items-center gap-2">
+            <img src={dangerSkull} alt="" width={1024} height={1024} className="size-6 object-contain" />
             <span className="signal-pulse size-2 shrink-0 bg-danger" aria-hidden="true" />
             <span className="font-semibold tracking-[0.25em]">NITC /// INDUCTION</span>
           </div>
@@ -46,11 +53,13 @@ function DangerBoys() {
             <span className="absolute inset-x-0 top-1/3 h-px bg-paper" />
             <span className="absolute inset-x-0 top-2/3 h-px bg-paper" />
           </div>
+          <img src={dangerSkull} alt="" width={1024} height={1024} className="skull-drift pointer-events-none absolute -right-[14%] top-1/2 w-[72vw] max-w-[950px] -translate-y-1/2 object-contain opacity-[0.13] mix-blend-screen" aria-hidden="true" />
           <div className="pointer-events-none absolute -right-40 top-1/4 h-24 w-[150%] -rotate-[14deg] bg-danger/85 mix-blend-screen" aria-hidden="true" />
           <div className="danger-scan pointer-events-none absolute" aria-hidden="true" />
 
           <div className="relative z-10">
             <div className="flex items-center gap-3">
+              <img src={dangerSkull} alt="" width={1024} height={1024} className="size-8 object-contain" />
               <span className="h-px w-10 bg-danger" />
               <span className="text-[10px] font-medium tracking-[0.3em] text-paper/60 sm:text-xs sm:tracking-[0.35em]">TRANSMISSION 001 — NO REPEAT</span>
             </div>
@@ -85,7 +94,7 @@ function DangerBoys() {
           <div className="danger-marquee flex w-max whitespace-nowrap will-change-transform">
             {[0, 1].map((copy) => (
               <div key={copy} className="flex shrink-0 items-center py-3 font-display text-2xl sm:text-3xl" aria-hidden={copy === 1}>
-                {ticker.map((item) => <span key={item} className="px-6">{item} <span className="ml-8">◆</span></span>)}
+                {ticker.map((item) => <span key={item} className="flex items-center gap-8 px-6">{item} <img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="size-8 object-contain" /></span>)}
               </div>
             ))}
           </div>
@@ -101,12 +110,12 @@ function DangerBoys() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 md:col-span-8">
               <article className="border-2 border-paper/15 bg-panel p-6">
-                <p className="font-display text-2xl text-danger">01</p>
+                <div className="flex items-center justify-between"><p className="font-display text-2xl text-danger">01</p><img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="size-12 object-contain opacity-70" /></div>
                 <h3 className="mt-2 text-lg font-semibold">Earn the frequency</h3>
                 <p className="mt-2 text-pretty text-sm text-paper/60">You get in by showing up when it's loud and staying when it's quiet. Curiosity and conviction beat posturing.</p>
               </article>
               <article className="border-2 border-paper/15 bg-panel p-6 sm:translate-y-8">
-                <p className="font-display text-2xl text-danger">02</p>
+                <div className="flex items-center justify-between"><p className="font-display text-2xl text-danger">02</p><img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="size-12 object-contain opacity-70" /></div>
                 <h3 className="mt-2 text-lg font-semibold">Brotherhood, not badge</h3>
                 <p className="mt-2 text-pretty text-sm text-paper/60">We back each other and build together. No cruelty, no hazing, no empty status games.</p>
               </article>
@@ -133,11 +142,39 @@ function DangerBoys() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden border-y-2 border-danger/40" aria-labelledby="founders-title">
+        <div className="pointer-events-none absolute inset-0 skull-field opacity-[0.035]" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24">
+          <div className="mb-10 grid items-end gap-5 md:grid-cols-12">
+            <div className="md:col-span-8">
+              <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL NINE</p>
+              <h2 id="founders-title" className="mt-3 font-display text-6xl leading-none text-paper sm:text-8xl">FOUNDING<br /><span className="text-danger">MEMBERS</span></h2>
+            </div>
+            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The nine who found the frequency before there was a signal.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
+            {founders.map((founder) => (
+              <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
+                <div className="absolute inset-0 grid place-items-center">
+                  <img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="w-3/4 object-contain opacity-20 grayscale transition duration-500 group-hover:scale-105 group-hover:opacity-35 group-hover:grayscale-0" />
+                </div>
+                <span className="absolute left-4 top-4 font-display text-3xl text-danger">{founder.number}</span>
+                <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4">
+                  <p className="text-[10px] font-semibold tracking-[0.25em] text-paper/50">PORTRAIT RESERVED</p>
+                  <h3 className="mt-1 font-display text-xl text-paper sm:text-2xl">{founder.label}</h3>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="join" className="relative overflow-hidden scroll-mt-4">
         <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28">
           <div className="relative">
             <div className="pointer-events-none absolute -bottom-16 -left-24 h-[300px] w-[300px] -rotate-[20deg] bg-danger/25" aria-hidden="true" />
             <div className="relative z-10 max-w-xl">
+              <img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="mb-5 size-16 object-contain" />
               <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// FINAL TRANSMISSION</p>
               <h2 className="mt-4 font-display text-6xl leading-none text-paper sm:text-7xl lg:text-8xl">YOU'RE<br />ONE CALL<br />OUT.</h2>
               <p className="mt-6 max-w-[38ch] text-pretty text-sm text-paper/70 sm:text-base">B25 CSE. NITC. When the signal drops, the door shuts. Make the call before the broadcast ends.</p>
