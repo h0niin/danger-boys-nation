@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import abdlla from "../assets/abdlla.asset.json";
+import adhith from "../assets/adhith.asset.json";
+import ash from "../assets/ash.asset.json";
 import dangerSkull from "../assets/danger-skull.png";
+import joel from "../assets/joel.asset.json";
+import naja from "../assets/naja.asset.json";
+import naseef from "../assets/naseef.asset.json";
+import rabeeath from "../assets/rabeeath.asset.json";
+import sanad from "../assets/sanad.asset.json";
+import shabas from "../assets/shabas.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,10 +33,17 @@ const stages = [
   ["04", "ON AIR", "Make the cut. Enter the frequency."],
 ];
 
-const founders = Array.from({ length: 9 }, (_, index) => ({
-  number: String(index + 1).padStart(2, "0"),
-  label: `FOUNDING MEMBER ${String(index + 1).padStart(2, "0")}`,
-}));
+const founders = [
+  { number: "01", name: "ABDLLA", image: abdlla.url, position: "50% 28%" },
+  { number: "02", name: "ADHITH", image: adhith.url, position: "50% 36%" },
+  { number: "03", name: "ASH", image: ash.url, position: "50% 38%" },
+  { number: "04", name: "JOEL", image: joel.url, position: "50% 38%" },
+  { number: "05", name: "NAJA", image: naja.url, position: "50% 30%" },
+  { number: "06", name: "NASEEF", image: naseef.url, position: "50% 36%" },
+  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "50% 38%" },
+  { number: "08", name: "SANAD", image: sanad.url, position: "50% 42%" },
+  { number: "09", name: "SHABAS", image: shabas.url, position: "50% 38%" },
+];
 
 function DangerBoys() {
   return (
@@ -155,13 +171,12 @@ function DangerBoys() {
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
             {founders.map((founder) => (
               <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
-                <div className="absolute inset-0 grid place-items-center">
-                  <img src={dangerSkull} alt="" loading="lazy" width={1024} height={1024} className="w-3/4 object-contain opacity-20 grayscale transition duration-500 group-hover:scale-105 group-hover:opacity-35 group-hover:grayscale-0" />
-                </div>
+                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} style={{ objectPosition: founder.position }} className="absolute inset-0 size-full scale-[1.28] object-cover grayscale transition duration-500 group-hover:scale-[1.36]" />
+                 <div className="absolute inset-0 bg-ink/15 transition-colors duration-500 group-hover:bg-transparent" />
                 <span className="absolute left-4 top-4 font-display text-3xl text-danger">{founder.number}</span>
                 <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4">
-                  <p className="text-[10px] font-semibold tracking-[0.25em] text-paper/50">PORTRAIT RESERVED</p>
-                  <h3 className="mt-1 font-display text-xl text-paper sm:text-2xl">{founder.label}</h3>
+                   <p className="text-[10px] font-semibold tracking-[0.25em] text-paper/50">FOUNDING MEMBER</p>
+                   <h3 className="mt-1 font-display text-xl text-paper sm:text-2xl">{founder.name}</h3>
                 </div>
               </article>
             ))}
