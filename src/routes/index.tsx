@@ -167,10 +167,10 @@ function DangerBoys() {
         <div className="relative mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24">
           <div className="mb-10 grid items-end gap-5 md:grid-cols-12">
             <div className="md:col-span-8">
-              <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL NINE</p>
+              <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL ELEVEN</p>
               <h2 id="founders-title" className="mt-3 font-display text-6xl leading-none text-paper sm:text-8xl">FOUNDING<br /><span className="text-danger">MEMBERS</span></h2>
             </div>
-            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The nine who found the frequency before there was a signal.</p>
+            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The eleven who found the frequency before there was a signal.</p>
           </div>
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
             {founders.map((founder) => (
