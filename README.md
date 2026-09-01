@@ -1,6 +1,6 @@
 # Danger Boys Induction
 
-Landing Page website for a frat boys group "Danger Boys" of NITC (college name) and we need this website to attract people to the induction process. we are indutcing otehr students of B25 CSE batch only. fit the theme "Danger Boys" and website should look really cool interactive and mind bending.
+Landing Page website for a frat boys group "Danger Boys" of  (college name) and we need this website to attract people to the induction process. we are indutcing otehr students of B25 CSE batch only. fit the theme "Danger Boys" and website should look really cool interactive and mind bending.
 
 This project was built with [Lovable](https://lovable.dev).
 
