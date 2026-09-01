@@ -9,6 +9,8 @@ import naseef from "../assets/naseef.asset.json";
 import rabeeath from "../assets/rabeeath.asset.json";
 import sanad from "../assets/sanad.asset.json";
 import shabas from "../assets/shabas.asset.json";
+import srv from "../assets/srv.asset.json";
+import yadhu from "../assets/yadhu.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,15 +36,17 @@ const stages = [
 ];
 
 const founders = [
-  { number: "01", name: "ABDLLA", image: abdlla.url, position: "object-[50%_28%]" },
-  { number: "02", name: "ADHITH", image: adhith.url, position: "object-[50%_36%]" },
-  { number: "03", name: "ASH", image: ash.url, position: "object-[50%_38%]" },
-  { number: "04", name: "JOEL", image: joel.url, position: "object-[50%_38%]" },
-  { number: "05", name: "NAJA", image: naja.url, position: "object-[50%_30%]" },
-  { number: "06", name: "NASEEF", image: naseef.url, position: "object-[50%_36%]" },
-  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "object-[50%_38%]" },
-  { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]" },
-  { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]" },
+  { number: "01", name: "ABDLLA", image: abdlla.url, position: "object-[50%_28%]", scale: 1.28 },
+  { number: "02", name: "ADHITH", image: adhith.url, position: "object-[50%_36%]", scale: 1.28 },
+  { number: "03", name: "ASH", image: ash.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "04", name: "JOEL", image: joel.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "05", name: "NAJA", image: naja.url, position: "object-[50%_30%]", scale: 1.28 },
+  { number: "06", name: "NASEEF", image: naseef.url, position: "object-[50%_36%]", scale: 1.28 },
+  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]", scale: 1.28 },
+  { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "10", name: "SRV", image: srv.url, position: "object-[50%_32%]", scale: 1.28 },
+  { number: "11", name: "YADHU", image: yadhu.url, position: "object-[50%_12%]", scale: 2.0 },
 ];
 
 function DangerBoys() {
@@ -163,15 +167,15 @@ function DangerBoys() {
         <div className="relative mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24">
           <div className="mb-10 grid items-end gap-5 md:grid-cols-12">
             <div className="md:col-span-8">
-              <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL NINE</p>
+              <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL ELEVEN</p>
               <h2 id="founders-title" className="mt-3 font-display text-6xl leading-none text-paper sm:text-8xl">FOUNDING<br /><span className="text-danger">MEMBERS</span></h2>
             </div>
-            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The nine who found the frequency before there was a signal.</p>
+            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The eleven who found the frequency before there was a signal.</p>
           </div>
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
             {founders.map((founder) => (
               <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
-                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} className={`absolute inset-0 size-full scale-[1.28] object-cover grayscale transition duration-500 group-hover:scale-[1.36] ${founder.position}`} />
+                 <img src={founder.image} alt={`${founder.name}, founding member`} loading="lazy" width={1080} height={1920} className={`absolute inset-0 size-full object-cover grayscale transition duration-500 ${founder.position}`} style={{ transform: `scale(${founder.scale})` }} />
                  <div className="absolute inset-0 bg-ink/15 transition-colors duration-500 group-hover:bg-transparent" />
                 <span className="absolute left-4 top-4 font-display text-3xl text-danger">{founder.number}</span>
                 <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4">
