@@ -36,17 +36,17 @@ const stages = [
 ];
 
 const founders = [
-  { number: "01", name: "ABDLLA", image: abdlla.url, position: "object-[50%_28%]" },
-  { number: "02", name: "ADHITH", image: adhith.url, position: "object-[50%_36%]" },
-  { number: "03", name: "ASH", image: ash.url, position: "object-[50%_38%]" },
-  { number: "04", name: "JOEL", image: joel.url, position: "object-[50%_38%]" },
-  { number: "05", name: "NAJA", image: naja.url, position: "object-[50%_30%]" },
-  { number: "06", name: "NASEEF", image: naseef.url, position: "object-[50%_36%]" },
-  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "object-[50%_38%]" },
-  { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]" },
-  { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]" },
-  { number: "10", name: "SRV", image: srv.url, position: "object-[50%_32%]" },
-  { number: "11", name: "YADHU", image: yadhu.url, position: "object-[50%_12%]", zoom: "scale-[1.7] group-hover:scale-[1.8]" },
+  { number: "01", name: "ABDLLA", image: abdlla.url, position: "object-[50%_28%]", scale: 1.28 },
+  { number: "02", name: "ADHITH", image: adhith.url, position: "object-[50%_36%]", scale: 1.28 },
+  { number: "03", name: "ASH", image: ash.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "04", name: "JOEL", image: joel.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "05", name: "NAJA", image: naja.url, position: "object-[50%_30%]", scale: 1.28 },
+  { number: "06", name: "NASEEF", image: naseef.url, position: "object-[50%_36%]", scale: 1.28 },
+  { number: "07", name: "RABEEATH", image: rabeeath.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "08", name: "SANAD", image: sanad.url, position: "object-[50%_42%]", scale: 1.28 },
+  { number: "09", name: "SHABAS", image: shabas.url, position: "object-[50%_38%]", scale: 1.28 },
+  { number: "10", name: "SRV", image: srv.url, position: "object-[50%_32%]", scale: 1.28 },
+  { number: "11", name: "YADHU", image: yadhu.url, position: "object-[50%_12%]", scale: 2.0 },
 ];
 
 function DangerBoys() {
