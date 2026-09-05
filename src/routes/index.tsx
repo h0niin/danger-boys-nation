@@ -200,7 +200,7 @@ function DangerBoys() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3">
+          <div className="grid grid-cols-3 gap-px bg-danger/40">
             {founders.map((founder) => {
               const isLit = Boolean(litFounders[founder.number]);
               return (
@@ -229,29 +229,29 @@ function DangerBoys() {
                   </div>
                   <div
                     className={`pointer-events-none absolute inset-0 transition-colors duration-500 ${isLit ? "bg-transparent ring-1 ring-danger/60 ring-inset" : "bg-ink/20 group-hover:bg-transparent"
-                      }`}
+      }`}
                   />
-                  <div className="pointer-events-none absolute left-3 top-3 sm:left-4 sm:top-4 flex items-center gap-1.5">
-                    <span className={`font-display text-2xl sm:text-3xl transition-colors duration-300 ${isLit ? "text-danger drop-shadow-[0_0_12px_rgba(255,40,40,0.9)]" : "text-danger drop-shadow"
+                  <div className="pointer-events-none absolute left-2 top-2 sm:left-4 sm:top-4 flex items-center gap-1 sm:gap-1.5">
+                    <span className={`font-display text-lg sm:text-3xl transition-colors duration-300 ${isLit ? "text-danger drop-shadow-[0_0_12px_rgba(255,40,40,0.9)]" : "text-danger drop-shadow"
                       }`}>
                       {founder.number}
                     </span>
                     {isLit && (
-                      <span className="signal-pulse size-2 bg-danger shadow-[0_0_10px_#ff2020]" aria-hidden="true" />
+                      <span className="signal-pulse size-1.5 sm:size-2 bg-danger shadow-[0_0_10px_#ff2020]" aria-hidden="true" />
                     )}
                   </div>
-                  <div className={`absolute inset-x-0 bottom-0 border-t transition-colors duration-300 p-3 sm:p-4 backdrop-blur-xs ${isLit ? "border-danger/70 bg-ink/95" : "border-paper/15 bg-ink/90"
+                  <div className={`absolute inset-x-0 bottom-0 border-t transition-colors duration-300 p-2 sm:p-4 backdrop-blur-xs ${isLit ? "border-danger/70 bg-ink/95" : "border-paper/15 bg-ink/90"
                     }`}>
-                    <div className="flex items-center justify-between">
-                      <p className={`text-[9px] sm:text-[10px] font-semibold tracking-[0.25em] transition-colors ${isLit ? "text-danger" : "text-paper/50"
+                    <div className="flex items-center justify-between gap-1">
+                      <p className={`text-[7px] xs:text-[9px] sm:text-[10px] font-semibold tracking-wider sm:tracking-[0.25em] truncate transition-colors ${isLit ? "text-danger" : "text-paper/50"
                         }`}>
                         {isLit ? "SIGNAL LOCKED" : "FOUNDING MEMBER"}
                       </p>
                       {isLit && (
-                        <span className="text-[9px] font-semibold tracking-widest text-danger">// ACTIVE</span>
+                        <span className="text-[7px] sm:text-[9px] font-semibold tracking-wider text-danger shrink-0">// ACTIVE</span>
                       )}
                     </div>
-                    <h3 className="mt-0.5 sm:mt-1 font-display text-lg sm:text-2xl text-paper">{founder.name}</h3>
+                    <h3 className="mt-0.5 sm:mt-1 font-display text-xs xs:text-sm sm:text-2xl text-paper truncate">{founder.name}</h3>
                   </div>
                 </button>
               );
