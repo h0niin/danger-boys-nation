@@ -124,9 +124,7 @@ function DangerBoys() {
                 <p className="max-w-[36ch] text-pretty text-sm text-paper/70 sm:text-base">A brotherhood run like a broadcast: loud, brief, and never out of signal. One batch. One frequency.</p>
                 <div className="mt-6 flex flex-wrap items-center gap-5">
                   <a
-                    href={INDUCTION_FORM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#join"
                     className="group inline-flex items-center bg-danger px-6 py-3 text-sm font-semibold tracking-wide text-ink ring-1 ring-danger ring-inset transition-colors hover:bg-paper"
                   >
                     REQUEST INDUCTION <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -223,8 +221,8 @@ function DangerBoys() {
                       width={1080}
                       height={1920}
                       className={`size-full object-cover transition-all duration-500 ${founder.position} ${isLit
-                          ? "grayscale-0 contrast-105 brightness-110"
-                          : "grayscale contrast-110 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-105"
+                        ? "grayscale-0 contrast-105 brightness-110"
+                        : "grayscale contrast-110 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-105"
                         }`}
                       style={{ transform: `scale(${founder.scale})` }}
                     />
