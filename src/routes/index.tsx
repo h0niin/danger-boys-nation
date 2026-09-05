@@ -27,6 +27,9 @@ export const Route = createFileRoute("/")({
   component: DangerBoys,
 });
 
+const INDUCTION_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSf__ybMitK4ba0mQUaQncMFdPIBu2ExMoVM4X5LmUVcUYq75A/viewform?usp=publish-editor";
+
 const ticker = ["B25 CSE ONLY", "FOLLOW US", "@kattan.kathakal", "ONE BATCH", "DANGER BOYS"];
 
 const founders = [
@@ -91,11 +94,16 @@ function DangerBoys() {
               <div className="md:col-span-7">
                 <p className="max-w-[36ch] text-pretty text-sm text-paper/70 sm:text-base">A brotherhood run like a broadcast: loud, brief, and never out of signal. One batch. One frequency.</p>
                 <div className="mt-6 flex flex-wrap items-center gap-5">
-                  <a href="#join" className="group inline-flex items-center bg-danger px-6 py-3 text-sm font-semibold tracking-wide text-ink ring-1 ring-danger ring-inset transition-colors hover:bg-paper">
+                  <a
+                    href={INDUCTION_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center bg-danger px-6 py-3 text-sm font-semibold tracking-wide text-ink ring-1 ring-danger ring-inset transition-colors hover:bg-paper"
+                  >
                     REQUEST INDUCTION <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </a>
                   <a href="#founders" className="inline-flex items-center gap-2 text-sm font-medium text-paper/70 transition-colors hover:text-paper">
-                    <span className="size-2 border border-paper/50" /> Founding Members ↓
+                    Founding Members ↓
                   </a>
                 </div>
               </div>
@@ -186,7 +194,12 @@ function DangerBoys() {
               <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// FINAL TRANSMISSION</p>
               <h2 className="mt-4 font-display text-6xl leading-none text-paper sm:text-7xl lg:text-8xl">YOU'RE<br />ONE CALL<br />OUT.</h2>
               <p className="mt-6 max-w-[38ch] text-pretty text-sm text-paper/70 sm:text-base">B25 CSE. When the signal drops, the door shuts. Make the call before the broadcast ends.</p>
-              <a href="mailto:dangerboys@.ac.in?subject=Danger%20Boys%20B25%20CSE%20Induction" className="mt-8 inline-flex items-center bg-paper px-7 py-4 text-sm font-semibold tracking-wide text-ink transition-colors hover:bg-danger">
+              <a
+                href={INDUCTION_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center bg-paper px-7 py-4 text-sm font-semibold tracking-wide text-ink transition-colors hover:bg-danger"
+              >
                 JOIN DANGER BOYS <span className="ml-2">→</span>
               </a>
             </div>
