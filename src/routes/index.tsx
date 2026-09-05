@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import abdullaImg from "../assets/images/abdul.jpg";
 import adithImg from "../assets/images/adhti.jpg";
@@ -48,6 +49,28 @@ const founders = [
 ];
 
 function DangerBoys() {
+  const [litFounders, setLitFounders] = useState<Record<string, boolean>>({});
+
+  const toggleFounder = (num: string) => {
+    setLitFounders((prev) => ({
+      ...prev,
+      [num]: !prev[num],
+    }));
+  };
+
+  const allLit = founders.every((f) => litFounders[f.number]);
+  const toggleAllFounders = () => {
+    if (allLit) {
+      setLitFounders({});
+    } else {
+      const next: Record<string, boolean> = {};
+      founders.forEach((f) => {
+        next[f.number] = true;
+      });
+      setLitFounders(next);
+    }
+  };
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-ink font-body text-paper antialiased selection:bg-danger selection:text-ink">
       <header className="relative z-20 border-b-2 border-danger/70">
@@ -157,30 +180,84 @@ function DangerBoys() {
               <p className="text-[11px] font-semibold tracking-[0.3em] text-danger">// ORIGINAL TWELVE</p>
               <h2 id="founders-title" className="mt-3 font-display text-6xl leading-none text-paper sm:text-8xl">FOUNDING<br /><span className="text-danger">MEMBERS</span></h2>
             </div>
-            <p className="max-w-[34ch] text-sm text-paper/60 md:col-span-4 md:text-right">The twelve who found the frequency before there was a signal.</p>
+            <div className="flex flex-col gap-2 md:col-span-4 md:items-end">
+              <p className="max-w-[34ch] text-sm text-paper/60 md:text-right">The twelve who found the frequency before there was a signal.</p>
+              <div className="mt-2 flex items-center gap-3">
+                <span className="flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.2em] text-paper/60">
+                  <span className="signal-pulse size-1.5 bg-danger inline-block" /> TAP TO ILLUMINATE
+                </span>
+                <button
+                  type="button"
+                  onClick={toggleAllFounders}
+                  className="inline-flex items-center border border-danger/50 bg-ink/80 px-2.5 py-1 text-[10px] font-semibold tracking-[0.15em] text-danger transition-colors hover:bg-danger hover:text-ink cursor-pointer"
+                >
+                  {allLit ? "DIM ALL" : "IGNITE ALL"}
+                </button>
+              </div>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-px bg-danger/40 sm:grid-cols-3 lg:grid-cols-4">
-            {founders.map((founder) => (
-              <article key={founder.number} className="group relative aspect-[4/5] overflow-hidden bg-panel">
-                <div className="size-full overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105">
-                  <img
-                    src={founder.image}
-                    alt={`${founder.name}, founding member`}
-                    loading="lazy"
-                    width={1080}
-                    height={1920}
-                    className={`size-full object-cover grayscale contrast-110 brightness-95 transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-105 ${founder.position}`}
-                    style={{ transform: `scale(${founder.scale})` }}
+            {founders.map((founder) => {
+              const isLit = Boolean(litFounders[founder.number]);
+              return (
+                <button
+                  type="button"
+                  key={founder.number}
+                  onClick={() => toggleFounder(founder.number)}
+                  aria-pressed={isLit}
+                  aria-label={`${founder.name}, founding member ${founder.number}. Click to ${isLit ? "dim" : "illuminate"}`}
+                  className={`group relative aspect-[4/5] overflow-hidden bg-panel text-left w-full cursor-pointer select-none transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-danger active:scale-[0.98] ${
+                    isLit ? "ring-2 ring-danger ring-inset shadow-[0_0_30px_rgba(255,40,40,0.5)] z-10" : ""
+                  }`}
+                >
+                  <div className={`size-full overflow-hidden transition-transform duration-500 ease-out ${isLit ? "scale-105" : "group-hover:scale-105"}`}>
+                    <img
+                      src={founder.image}
+                      alt={`${founder.name}, founding member`}
+                      loading="lazy"
+                      width={1080}
+                      height={1920}
+                      className={`size-full object-cover transition-all duration-500 ${founder.position} ${
+                        isLit
+                          ? "grayscale-0 contrast-105 brightness-110"
+                          : "grayscale contrast-110 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-105"
+                      }`}
+                      style={{ transform: `scale(${founder.scale})` }}
+                    />
+                  </div>
+                  <div
+                    className={`pointer-events-none absolute inset-0 transition-colors duration-500 ${
+                      isLit ? "bg-transparent ring-1 ring-danger/60 ring-inset" : "bg-ink/20 group-hover:bg-transparent"
+                    }`}
                   />
-                </div>
-                <div className="pointer-events-none absolute inset-0 bg-ink/20 transition-colors duration-500 group-hover:bg-transparent" />
-                <span className="pointer-events-none absolute left-4 top-4 font-display text-3xl text-danger drop-shadow">{founder.number}</span>
-                <div className="absolute inset-x-0 bottom-0 border-t border-paper/15 bg-ink/90 p-4 backdrop-blur-xs">
-                  <p className="text-[10px] font-semibold tracking-[0.25em] text-paper/50">FOUNDING MEMBER</p>
-                  <h3 className="mt-1 font-display text-xl text-paper sm:text-2xl">{founder.name}</h3>
-                </div>
-              </article>
-            ))}
+                  <div className="pointer-events-none absolute left-3 top-3 sm:left-4 sm:top-4 flex items-center gap-1.5">
+                    <span className={`font-display text-2xl sm:text-3xl transition-colors duration-300 ${
+                      isLit ? "text-danger drop-shadow-[0_0_12px_rgba(255,40,40,0.9)]" : "text-danger drop-shadow"
+                    }`}>
+                      {founder.number}
+                    </span>
+                    {isLit && (
+                      <span className="signal-pulse size-2 bg-danger shadow-[0_0_10px_#ff2020]" aria-hidden="true" />
+                    )}
+                  </div>
+                  <div className={`absolute inset-x-0 bottom-0 border-t transition-colors duration-300 p-3 sm:p-4 backdrop-blur-xs ${
+                    isLit ? "border-danger/70 bg-ink/95" : "border-paper/15 bg-ink/90"
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <p className={`text-[9px] sm:text-[10px] font-semibold tracking-[0.25em] transition-colors ${
+                        isLit ? "text-danger" : "text-paper/50"
+                      }`}>
+                        {isLit ? "SIGNAL LOCKED" : "FOUNDING MEMBER"}
+                      </p>
+                      {isLit && (
+                        <span className="text-[9px] font-semibold tracking-widest text-danger">// ACTIVE</span>
+                      )}
+                    </div>
+                    <h3 className="mt-0.5 sm:mt-1 font-display text-lg sm:text-2xl text-paper">{founder.name}</h3>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
