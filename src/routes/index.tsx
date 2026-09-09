@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useAuth } from "../hooks/useAuth";
 import abdullaImg from "../assets/images/abdul.jpg";
 import adithImg from "../assets/images/adhti.jpg";
 import ashImg from "../assets/images/ash.jpg";
@@ -55,6 +56,7 @@ const founders = [
 ];
 
 function DangerBoys() {
+  const { session } = useAuth();
   const [litFounders, setLitFounders] = useState<Record<string, boolean>>({});
 
   const toggleFounder = (num: string) => {
@@ -87,7 +89,24 @@ function DangerBoys() {
             <span className="font-semibold tracking-[0.25em]"> DB /// INDUCTIONS</span>
           </div>
           <span className="hidden font-medium tracking-[0.25em] text-paper/50 sm:block">SIGNAL OPEN — LIVE</span>
-          <span className="font-semibold tracking-[0.2em] text-danger sm:tracking-[0.25em]">BROADCAST B25-CSE</span>
+          <div className="flex items-center gap-4">
+            {session ? (
+              <Link
+                to="/memories"
+                className="font-semibold tracking-[0.2em] text-danger hover:text-paper transition-colors sm:tracking-[0.25em] text-[10px] sm:text-xs flex items-center gap-2"
+              >
+                <span className="signal-pulse size-1.5 bg-danger inline-block" />
+                SIGNAL ARCHIVE
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="font-semibold tracking-[0.2em] text-paper/50 hover:text-danger transition-colors sm:tracking-[0.25em] text-[10px] sm:text-xs"
+              >
+                MEMBER LOGIN →
+              </Link>
+            )}
+          </div>
         </div>
       </header>
 
